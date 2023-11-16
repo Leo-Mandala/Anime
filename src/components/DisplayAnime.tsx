@@ -11,7 +11,7 @@ function DisplayAnime() {
 
   useEffect(() => {
     axios
-      .get(`https://api.betaseries.com/shows/list?key=4828f680f398&platforms=221`)
+      .get(`https://api.betaseries.com/shows/list?key=${process.env.REACT_APP_API_KEY}&platforms=221`)
       .then((res) => {
         setAnimes(res.data.shows);
         console.log(res.data);

@@ -12,7 +12,7 @@ function AnimeSearch() {
     setIsLoading(true);
 
     axios
-      .get(`https://api.betaseries.com/search/shows?key=4828f680f398&svods=221&text=${searchTerm}&limit=10`)
+      .get(`https://api.betaseries.com/search/shows?key=${process.env.REACT_APP_API_KEY}&svods=221&text=${searchTerm}&limit=10`)
       .then((res) => {
         setAnimeResults(res.data.shows);
         setIsLoading(false);

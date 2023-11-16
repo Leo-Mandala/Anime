@@ -8,7 +8,7 @@ function ListOfShows() {
     let jeton = localStorage.getItem("token");
     axios
       .get(
-        `https://api.betaseries.com/shows/member?key=4828f680f398&token=${jeton}`
+        `https://api.betaseries.com/shows/member?key=${process.env.REACT_APP_API_KEY}&token=${jeton}`
       )
       .then((res) => {
         setMemberShows(res.data.shows);

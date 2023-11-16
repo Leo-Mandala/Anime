@@ -15,11 +15,11 @@ function EpisodeList({ selectedShow, onClose }: { selectedShow: { thetvdb_id: st
     console.log(showInfo.thetvdb_id);
     console.log(jeton);
     console.log(
-      `https://api.betaseries.com/shows/show?key=4828f680f398&thetvdb_id=${showInfo.thetvdb_id}&token=${jeton}`
+      `https://api.betaseries.com/shows/show?key=${process.env.REACT_APP_API_KEY}&thetvdb_id=${showInfo.thetvdb_id}&token=${jeton}`
     );
     axios
       .post(
-        `https://api.betaseries.com/shows/show?key=4828f680f398&thetvdb_id=${showInfo.thetvdb_id}&token=${jeton}`
+        `https://api.betaseries.com/shows/show?key=${process.env.REACT_APP_API_KEY}&thetvdb_id=${showInfo.thetvdb_id}&token=${jeton}`
       )
       .then((res) => {
         console.log(res.data);
@@ -35,7 +35,7 @@ function EpisodeList({ selectedShow, onClose }: { selectedShow: { thetvdb_id: st
     console.log(episodes);
     axios
       .post(
-        `https://api.betaseries.com/episodes/watched?key=4828f680f398&thetvdb_id=${thetvdb_id}&token=${jeton}&bulk=${bulk}`
+        `https://api.betaseries.com/episodes/watched?key=${process.env.REACT_APP_API_KEY}&thetvdb_id=${thetvdb_id}&token=${jeton}&bulk=${bulk}`
       )
       .then((res) => {
         console.log(res.data);
@@ -49,7 +49,7 @@ function EpisodeList({ selectedShow, onClose }: { selectedShow: { thetvdb_id: st
     if (selectedShow) {
       axios
         .get(
-          `https://api.betaseries.com/shows/episodes?key=4828f680f398&thetvdb_id=${selectedShow.thetvdb_id}`
+          `https://api.betaseries.com/shows/episodes?key=${process.env.REACT_APP_API_KEY}8&thetvdb_id=${selectedShow.thetvdb_id}`
         )
         .then((res) => {
           setEpisodes(res.data.episodes);
@@ -59,7 +59,7 @@ function EpisodeList({ selectedShow, onClose }: { selectedShow: { thetvdb_id: st
         });
 
       axios
-        .get(`https://api.betaseries.com/shows/display?key=4828f680f398&thetvdb_id=${selectedShow.thetvdb_id}`)
+        .get(`https://api.betaseries.com/shows/display?key=${process.env.REACT_APP_API_KEY}&thetvdb_id=${selectedShow.thetvdb_id}`)
         .then((res) => {
           setShowInfo(res.data.show);
         })

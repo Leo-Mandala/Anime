@@ -2,10 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import DisplayAnime from './components/DisplayAnime';
 import Headers from './components/Header';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
-import Navbar from './components/Navbar';
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -14,7 +15,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Headers />
-      <App />
+      <DisplayAnime />
     </BrowserRouter>
   </React.StrictMode>
 );
